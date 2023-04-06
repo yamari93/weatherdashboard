@@ -1,0 +1,108 @@
+about {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+    text-align: center;
+    text-size-adjust: 30%;
+}
+
+footer {
+    padding: 1.5rem 0;
+    background-color: blue;
+    align-content: center;
+}
+
+header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: lightblue;
+    text-align: center;
+    padding-inline: 1rem;
+}
+
+h2 {
+    position: relative;
+    margin: 0 1.5rem;
+    border-radius: 6px;
+    top: -32px;
+    text-align: center;
+    padding: 1rem;
+    background-color: lightslategrey;
+}
+
+h2:hover {
+    color: aqua;
+    animation: glow 1s ease-in-out infinite;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+}
+
+img {
+    border-radius: 20%;
+    max-width: 12rem;
+    max-height: 12rem;
+    display: block;
+    justify-content: center;
+
+}
+
+main {
+
+    background: linear-gradient(lightblue, blue);
+    flex: 1;
+    padding: 3rem 0;
+    justify-content: center;
+
+}
+
+nav {
+    text-decoration: none;
+}
+
+
+
+/* classes */
+.centered {
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+    text-align: center;
+
+}
+
+.mt- {
+    margin-top: 0.75rem;
+}
+
+.pt {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
