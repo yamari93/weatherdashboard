@@ -89,44 +89,20 @@ currentHumidity.innerHTML = `Humidity ${data.list[0].main.humidity}%`;
 cityCardclassList.remove("hidden");
 forecastTitle.innerHTML = "5 Day Forecast";
 
-function renderItems(city, data) {
-  document.querySelector("#currentCity").innerHTML = city;
-
-  document.querySelector("#day1Date").innerHTML = data.list[0].dt_txt;
-  document.querySelector("#day1Description").innerHTML = data.list[0].weather[0].description;
-  let kTemp = data.list[0].main.temp;
-  let fTemp = ((kTemp - 273.15) * 9) / 5 + 32;
-  document.querySelector("#day1Temp").innerHTML = fTemp;
-  document.querySelector("#day1Humidity").innerHTML = data.list[0].main.humidity;
-
-  document.querySelector("#day2Date").innerHTML = data.list[1].dt_txt;
-  document.querySelector("#day2Description").innerHTML = data.list[1].weather[0].description;
-  let kTemp2 = data.list[1].main.temp;
-  let fTemp2 = ((kTemp2 - 273.15) * 9) / 5 + 32;
-  document.querySelector("#day2Temp").innerHTML = fTemp2;
-  document.querySelector("#day2Humidity").innerHTML = data.list[1].main.humidity;
-
-  document.querySelector("#day3Date").innerHTML = data.list[2].dt_txt;
-  document.querySelector("#day3Description").innerHTML = data.list[2].weather[0].description;
-  let kTemp3 = data.list[2].main.temp;
-  let fTemp3 = ((kTemp3 - 273.15) * 9) / 5 + 32;
-  document.querySelector("#day3Temp").innerHTML = fTemp3;
-  document.querySelector("#day3Humidity").innerHTML = data.list[2].main.humidity;
-
-  document.querySelector("#day4Date").innerHTML = data.list[3].dt_txt;
-  document.querySelector("#day4Description").innerHTML = data.list[3].weather[0].description;
-  let kTemp4 = data.list[3].main.temp;
-  let fTemp4 = ((kTemp4 - 273.15) * 9) / 5 + 32;
-  document.querySelector("#day4Temp").innerHTML = fTemp4;
-  document.querySelector("#day4Humidity").innerHTML = data.list[3].main.humidity;
-
-  document.querySelector("#day5Date").innerHTML = data.list[4].dt_txt;
-  document.querySelector("#day5Description").innerHTML = data.list[4].weather[0].description;
-  let kTemp5 = data.list[4].main.temp;
-  let fTemp5 = ((kTemp5 - 273.15) * 9) / 5 + 32;
-  document.querySelector("#day5Temp").innerHTML = fTemp5;
-  document.querySelector("#day5Humidity").innerHTML = data.list[4].main.humidity;
-}
+data.listforEach((day) => {
+  let midnight = day.dt_txt.split(" ")[1];
+  let date = dayjs(day.dt_txt).format("MMMM DD, YYYY");
+  if (midnight === "00:00:00") {
+    let dayCard = document.createElement("div");
+    dayCard.innerHTML += `<h1 class="font-bold">${date}</h1>`;
+    dayCard.innerHTML += `<img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png">`;
+    dayCard.innerHTML += `<div>Temp: ${day.main.temp}°</div>`;
+    dayCard.innerHTML += `<div>Wind: ${day.wind.speed} MPH</div>`;
+    dayCard.innerHTML += `<div>Humidity ${day.main.humidity}%</div>`;
+    dayCard.classList.add("border-3", "boarder-blue", "rounded-lg", "p-2", "m-2", "bg-gradient-to-r", "from-purple-500", "to-teal-500", "text-black");
+    forecast.append(dayCard);
+  }
+});
 
 //Function calls
 //event listeners
